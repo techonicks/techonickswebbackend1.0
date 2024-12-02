@@ -1,5 +1,4 @@
 import { v2 as cloudinary } from "cloudinary";
-import { unlink } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -11,9 +10,6 @@ const uploadFile = async () => {
     if (!localFilePath) return null;
     const response = await cloudinary.uploader.upload(localFilePath, {
       resource_type: "auto",
-    });
-    unlink(localFilePath,(err)=>{
-      console.log(err);
     });
     return response.secure_url;
   } catch (error) {
