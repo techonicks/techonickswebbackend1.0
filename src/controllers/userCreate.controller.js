@@ -1,5 +1,6 @@
 import { UserInfo } from "../models/userInfo.model.js";
 import uploadFile from "../uploads/cloudinary.js";
+import getDataUri from "../utils/dataUri.js";
 
 export async function createUser(req, res) {
   let user = await UserInfo.findOne({ email: req.body.email });
@@ -14,18 +15,12 @@ export async function createUser(req, res) {
 
   // image upload
 
-  const image = await uploadFile();
-  if (!image) {
-    return res.json({
-      success: false,
-      status: "F",
-      message: "Failed to upload image",
-    });
-  }
+  const avatarUri = getDataUri(req.file)
+  const avatarSrc = await uploadFile(avatarUri.content)
 
   const newUserInfo = await UserInfo.create({
     // avatar
-    avatar: image,
+    avatar: avatarSrc,
     name: req.body.name,
     email: req.body.email,
     password: req.body.password,
