@@ -4,12 +4,13 @@ import { BASE_ROUTE } from './constants.js';
 import { userRouter } from './routes/user.route.js';
 import cookieParser from 'cookie-parser';
 import cors from "cors"
+import { profileRoute } from './routes/profile.route.js';
 
 const app = express();
 
 app.use(
     cors({
-      origin: "http://localhost:3000",
+      origin: ["http://localhost:3000","https://techonicks.vercel.app"],
       credentials: true,
       methods: ["GET", "POST", "PUT", "DELETE"],
     })
@@ -26,5 +27,6 @@ app.use(cookieParser())
 
 app.use("/",testRouter)
 app.use(`${BASE_ROUTE}/user`,userRouter)
+app.use(`${BASE_ROUTE}/user/editProfile`,profileRoute)
 
 export { app }

@@ -61,10 +61,8 @@ export async function logout(req, res) {
 export async function findUserByToken(req, res) {
   const { token } = req.cookies;
   const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
-  console.log(decodedToken._id);
   const user = await UserInfo.findById(decodedToken._id);
   if (user) {
-    console.log(user);
     return res.status(200).json({
       success: true,
       status: "S",

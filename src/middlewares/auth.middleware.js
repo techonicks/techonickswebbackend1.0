@@ -1,5 +1,4 @@
 export function isAuthenticated(req, res, next) {
-  console.log(req.cookies.token);
   if (req.cookies.token) {
     next();
   } else {
