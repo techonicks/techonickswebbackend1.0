@@ -23,6 +23,8 @@ export async function login(req, res) {
       .cookie("token", token, {
         expires: new Date(Date.now() + 60 * 60 * 10000000 * 10),
         httpOnly: true,
+        sameSite:"none",
+        secure:true
       })
       .status(200)
       .json({
