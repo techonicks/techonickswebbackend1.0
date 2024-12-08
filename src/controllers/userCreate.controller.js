@@ -1,3 +1,4 @@
+import { UserProfile } from "../models/profile.model.js";
 import { UserInfo } from "../models/userInfo.model.js";
 import uploadFile from "../uploads/cloudinary.js";
 import getDataUri from "../utils/dataUri.js";
@@ -28,6 +29,10 @@ export async function createUser(req, res) {
     year : req.body.year,
     department : req.body.department,
   });
+
+  const newUserProfile = await UserProfile.create({
+    userEmail : req.body.email,
+  })
 
   if (newUserInfo) {
     return res.status(200).json({

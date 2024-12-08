@@ -27,6 +27,6 @@ app.use(cookieParser())
 
 app.use("/",testRouter)
 app.use(`${BASE_ROUTE}/user`,userRouter)
-app.use(`${BASE_ROUTE}/user/editProfile`,profileRoute)
+app.use(`${BASE_ROUTE}/user/profile`,profileRoute)
 
 export { app }
