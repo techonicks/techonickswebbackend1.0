@@ -1,5 +1,4 @@
 import Events from "../models/event.model.js";
-import { UserInfo } from "../models/userInfo.model.js";
 import uploadFile from "../uploads/cloudinary.js";
 import getDataUri from "../utils/dataUri.js";
 

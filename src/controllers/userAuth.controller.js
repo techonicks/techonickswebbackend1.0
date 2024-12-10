@@ -51,7 +51,11 @@ export async function logout(req, res) {
     });
   }
 
-  res.clearCookie("token");
+  res.clearCookie("token",{
+    httpOnly: true,
+    sameSite:"none",
+    secure:true
+  });
   return res.status(200).json({
     success: true,
     status: "S",
