@@ -10,17 +10,14 @@ const app = express();
 
 app.use(
   cors({
-    // origin: [
-    //   // "http://localhost:3000",
-    //   // "https://techonicks.vercel.app",
-    //   "https://techonickswebsite-git-dev-techonicks-projects.vercel.app/",
-    // ],
+    origin : "https://techonickswebsite-git-dev-techonicks-projects.vercel.app",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
-    origin : "https://techonickswebsite-git-dev-techonicks-projects.vercel.app",
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+app.options("*",cors())
 
 
 // Middleware
