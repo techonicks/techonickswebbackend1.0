@@ -22,7 +22,6 @@ app.use(
   })
 );
 
-app.options("*",cors())
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
