@@ -17,7 +17,8 @@ app.use(
     // ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
-    origin : "https://techonickswebsite-git-dev-techonicks-projects.vercel.app"
+    origin : "https://techonickswebsite-git-dev-techonicks-projects.vercel.app",
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
