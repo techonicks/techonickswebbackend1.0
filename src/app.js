@@ -11,8 +11,8 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "http://localhost:3000",
-      "https://techonicks.vercel.app",
+      // "http://localhost:3000",
+      // "https://techonicks.vercel.app",
       "https://techonickswebsite-git-dev-techonicks-projects.vercel.app/",
     ],
     credentials: true,
