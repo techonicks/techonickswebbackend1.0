@@ -9,12 +9,7 @@ import { profileRoute } from "./routes/profile.route.js";
 const app = express();
 
 app.use(
-  cors({
-    origin : "*",
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
+  cors()
 );
 
 
