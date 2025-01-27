@@ -5,6 +5,8 @@ import { userRouter } from './routes/user.route.js';
 import cookieParser from 'cookie-parser';
 import cors from "cors"
 import { profileRoute } from './routes/profile.route.js';
+import { membersRoute } from './routes/members.route.js';
+import { eventRouter } from './routes/events.route.js';
 
 const app = express();
 
@@ -28,5 +30,7 @@ app.use(cookieParser())
 app.use("/",testRouter)
 app.use(`${BASE_ROUTE}/user`,userRouter)
 app.use(`${BASE_ROUTE}/user/profile`,profileRoute)
+app.use(`${BASE_ROUTE}/user/members`,membersRoute)
+app.use(`${BASE_ROUTE}/event`,eventRouter) 
 
 export { app }
