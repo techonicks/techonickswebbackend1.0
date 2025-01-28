@@ -1,8 +1,8 @@
 import { UserInfo } from "../models/userInfo.model.js";
 
 export async function getMembers(req, res) {
-  const members = await UserInfo.find();
-  let response = members.map(
+  const members = await UserInfo.find({});
+  const response = members.map(
     ({ name, role, email, avatar, department, year, description }) => ({
       name,
       role,
